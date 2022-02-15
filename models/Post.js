@@ -33,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'posts_id',
             as: 'comentarios'
         });
+
+        post.belongsTo(models.Usuario, {
+            foreignKey: 'usuarios_id',
+            as: 'usuario'
+        });
     };
 
     return post;
