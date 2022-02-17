@@ -1,3 +1,5 @@
+const {Usuario} = require('../models');
+
 const AuthController = {
     
     showLogin: (req,res) => {
@@ -10,9 +12,13 @@ const AuthController = {
 
     showHome: (req,res) => {
         res.render('index');
+    },
+
+    addRegistro: async (req, res) => {
+        let {nome, email, senha} = req.body;
+
+        let usuario = await Usuario.create({nome, email, senha});
     }
-
-
 }
 
 module.exports = AuthController;
